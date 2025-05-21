@@ -8,21 +8,23 @@ package model;
  *
  * @author Gustavo
  */
-public class Musica {
+public class Playlist {
     private int id;
     private String nome;
-    private String artista;
-    private String genero;
+    private String emailUsuario;
 
-    public Musica(int id, String nome, String artista, String genero) {
+    public Playlist(int id, String nome, String emailUsuario) {
         this.id = id;
         this.nome = nome;
-        this.artista = artista;
-        this.genero = genero;
+        this.emailUsuario = emailUsuario;
     }
 
     public int getId() { return id; }
     public String getNome() { return nome; }
-    public String getArtista() { return artista; }
-    public String getGenero() { return genero; }
+    public String getEmailUsuario() { return emailUsuario; }
+    
+    @Override
+    public String toString() {
+        return nome;
+}
 }

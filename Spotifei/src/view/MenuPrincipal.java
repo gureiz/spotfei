@@ -8,9 +8,13 @@ package view;
  *
  * @author Gustavo
  */
+
 import model.Usuario;
 import javax.swing.*;
 import view.TelaBuscarMusica;
+import view.TelaCurtirMusica;
+import view.TelaGerenciarPlaylists;
+
 
 public class MenuPrincipal extends JFrame {
     public MenuPrincipal(Usuario usuario) {
@@ -37,10 +41,14 @@ public class MenuPrincipal extends JFrame {
         JButton btnHistorico = new JButton("Visualizar histórico");
         btnHistorico.setBounds(100, 220, 200, 30);
 
-        btnBuscar.addActionListener(e -> {
-            TelaBuscarMusica tela = new TelaBuscarMusica();
-            tela.setVisible(true);
-        });
+        btnBuscar.addActionListener(e -> new TelaBuscarMusica().setVisible(true));
+
+        btnCurtir.addActionListener(e -> new TelaCurtirMusica(usuario).setVisible(true));
+        
+        btnHistorico.addActionListener(e -> new TelaVisualizarCurtidas(usuario).setVisible(true));
+
+        btnPlaylists.addActionListener(e -> new TelaGerenciarPlaylists(usuario).setVisible(true));
+
 
         add(lblBemVindo);
         add(btnBuscar);
@@ -50,3 +58,5 @@ public class MenuPrincipal extends JFrame {
         add(btnHistorico);
     }
 }
+
+      

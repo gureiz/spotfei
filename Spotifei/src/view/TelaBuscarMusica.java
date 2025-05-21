@@ -63,10 +63,11 @@ public class TelaBuscarMusica extends JFrame {
             resultado.setText("Nenhuma música encontrada.");
         } else {
             for (Musica m : musicas) {
+                resultado.append("ID: " + m.getId() + "\n");
                 resultado.append("🎵 Nome: " + m.getNome() + "\n");
                 resultado.append("👤 Artista: " + m.getArtista() + "\n");
                 resultado.append("🎧 Gênero: " + m.getGenero() + "\n");
-                resultado.append("------------------------------\n");
+
             }
         }
     }
