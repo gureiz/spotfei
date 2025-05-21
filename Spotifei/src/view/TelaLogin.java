@@ -8,9 +8,12 @@ package view;
  *
  * @author Gustavo
  */
+import view.TelaBuscarMusica;
+import view.MenuPrincipal;
 import controller.UsuarioController;
 import model.Usuario;
 import javax.swing.*;
+
 
 public class TelaLogin extends JFrame {
     public TelaLogin() {
@@ -41,6 +44,8 @@ public class TelaLogin extends JFrame {
             Usuario u = UsuarioController.login(email, senha);
             if (u != null) {
                 JOptionPane.showMessageDialog(this, "Bem-vindo, " + u.getNome());
+                dispose();
+                new MenuPrincipal(u).setVisible(true);
             } else {
                 JOptionPane.showMessageDialog(this, "Credenciais inválidas.");
             }
