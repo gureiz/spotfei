@@ -10,18 +10,20 @@ package model;
  */
 
 
-public class Usuario {
-    private String nome;
-    private String email;
+public class Usuario extends Pessoa implements Autenticacao {
     private String senha;
 
     public Usuario(String nome, String email, String senha) {
-        this.nome = nome;
-        this.email = email;
+        super(nome, email);
         this.senha = senha;
     }
 
-    public String getNome() { return nome; }
-    public String getEmail() { return email; }
-    public String getSenha() { return senha; }
+    public String getSenha() {
+        return senha;
+    }
+
+    @Override
+    public boolean login(String email, String senha) {
+        return this.email.equals(email) && this.senha.equals(senha);
+    }
 }

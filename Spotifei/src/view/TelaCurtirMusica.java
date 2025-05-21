@@ -8,36 +8,49 @@ package view;
  *
  * @author Gustavo
  */
-import controller.CurtidaController;
+import DAO.HistoricoDAO;
+import DAO.UsuarioDAO;
 import model.Usuario;
 
 import javax.swing.*;
 
 public class TelaCurtirMusica extends JFrame {
+    private Usuario usuario;
+    private UsuarioDAO dao = new UsuarioDAO();
+    private JTextField txtId;
+
     public TelaCurtirMusica(Usuario usuario) {
-        setTitle("Curtir/Descurtir Música");
-        setSize(400, 200);
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.usuario = usuario;
+
+        setTitle("Curtir / Descurtir Músicas");
+        setSize(400, 250);
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setLayout(null);
 
-        JLabel lblIdMusica = new JLabel("ID da música:");
-        lblIdMusica.setBounds(20, 20, 120, 25);
-        JTextField txtIdMusica = new JTextField();
-        txtIdMusica.setBounds(150, 20, 200, 25);
+        JLabel lblId = new JLabel("ID da música:");
+        lblId.setBounds(20, 30, 100, 25);
+        add(lblId);
+
+        txtId = new JTextField();
+        txtId.setBounds(130, 30, 200, 25);
+        add(txtId);
 
         JButton btnCurtir = new JButton("Curtir");
-        btnCurtir.setBounds(80, 70, 100, 30);
+        btnCurtir.setBounds(70, 80, 100, 30);
+        add(btnCurtir);
 
         JButton btnDescurtir = new JButton("Descurtir");
-        btnDescurtir.setBounds(200, 70, 100, 30);
+        btnDescurtir.setBounds(200, 80, 100, 30);
+        add(btnDescurtir);
 
         btnCurtir.addActionListener(e -> {
             try {
-                int id = Integer.parseInt(txtIdMusica.getText());
-                if (CurtidaController.curtir(usuario.getEmail(), id)) {
-                    JOptionPane.showMessageDialog(this, "Música curtida!");
+                int idMusica = Integer.parseInt(txtId.getText().trim());
+                if (dao.curtir(usuario.getEmail(), idMusica)) {
+                    JOptionPane.showMessageDialog(this, "Curtido com sucesso.");
                 } else {
-                    JOptionPane.showMessageDialog(this, "Erro ao curtir a música.");
+                    JOptionPane.showMessageDialog(this, "Já estava curtido.");
                 }
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(this, "ID inválido.");
@@ -46,20 +59,16 @@ public class TelaCurtirMusica extends JFrame {
 
         btnDescurtir.addActionListener(e -> {
             try {
-                int id = Integer.parseInt(txtIdMusica.getText());
-                if (CurtidaController.descurtir(usuario.getEmail(), id)) {
-                    JOptionPane.showMessageDialog(this, "Música descurtida.");
+                int idMusica = Integer.parseInt(txtId.getText().trim());
+                if (dao.descurtir(usuario.getEmail(), idMusica)) {
+                    JOptionPane.showMessageDialog(this, "Descurtido.");
+                    new HistoricoDAO().registrarDescurtida(usuario.getEmail(), idMusica);
                 } else {
-                    JOptionPane.showMessageDialog(this, "Erro ao descurtir a música.");
+                    JOptionPane.showMessageDialog(this, "Essa música não estava curtida.");
                 }
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(this, "ID inválido.");
             }
         });
-
-        add(lblIdMusica);
-        add(txtIdMusica);
-        add(btnCurtir);
-        add(btnDescurtir);
     }
 }

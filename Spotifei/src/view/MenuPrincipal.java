@@ -29,30 +29,35 @@ public class MenuPrincipal extends JFrame {
         JButton btnBuscar = new JButton("Buscar músicas");
         btnBuscar.setBounds(100, 60, 200, 30);
 
-        JButton btnListar = new JButton("Listar músicas encontradas");
-        btnListar.setBounds(100, 100, 200, 30);
+        //JButton btnListar = new JButton("Listar músicas encontradas");
+        //btnListar.setBounds(100, 100, 200, 30);
 
         JButton btnCurtir = new JButton("Curtir/Descurtir músicas");
-        btnCurtir.setBounds(100, 140, 200, 30);
+        btnCurtir.setBounds(100, 100, 200, 30);
 
         JButton btnPlaylists = new JButton("Gerenciar playlists");
-        btnPlaylists.setBounds(100, 180, 200, 30);
+        btnPlaylists.setBounds(100, 140, 200, 30);
 
         JButton btnHistorico = new JButton("Visualizar histórico");
-        btnHistorico.setBounds(100, 220, 200, 30);
+        btnHistorico.setBounds(100, 180, 200, 30);
 
-        btnBuscar.addActionListener(e -> new TelaBuscarMusica().setVisible(true));
+        btnBuscar.addActionListener(e -> new TelaBuscarMusica(usuario).setVisible(true));
+        
 
         btnCurtir.addActionListener(e -> new TelaCurtirMusica(usuario).setVisible(true));
+
         
-        btnHistorico.addActionListener(e -> new TelaVisualizarCurtidas(usuario).setVisible(true));
+        //btnHistorico.addActionListener(e -> new TelaVisualizarCurtidas(usuario).setVisible(true));
 
         btnPlaylists.addActionListener(e -> new TelaGerenciarPlaylists(usuario).setVisible(true));
+        
+        btnHistorico.addActionListener(e -> new TelaVisualizarHistorico(usuario).setVisible(true));
+
 
 
         add(lblBemVindo);
         add(btnBuscar);
-        add(btnListar);
+        //add(btnListar);
         add(btnCurtir);
         add(btnPlaylists);
         add(btnHistorico);
