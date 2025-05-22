@@ -9,66 +9,67 @@ package view;
  * @author Gustavo
  */
 import controller.MusicaController;
+import DAO.HistoricoDAO;
 import model.Musica;
-import javax.swing.*;
+import model.Usuario;
 
+import javax.swing.*;
 import java.util.List;
 
-
-
-
 public class TelaBuscarMusica extends JFrame {
-    private JTextField txtBuscar;
-    private JTextArea resultado;
+    private Usuario usuario;
 
-    public TelaBuscarMusica() {
+    public TelaBuscarMusica(Usuario usuario) {
+        this.usuario = usuario;
+
         setTitle("Buscar Músicas");
         setSize(500, 500);
         setLocationRelativeTo(null);
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setLayout(null); // manual layout
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        setLayout(null); // layout manual
 
         JLabel lblBuscar = new JLabel("Buscar:");
-        lblBuscar.setBounds(20, 20, 60, 25);
+        lblBuscar.setBounds(20, 20, 80, 25);
         add(lblBuscar);
 
-        txtBuscar = new JTextField();
-        txtBuscar.setBounds(80, 20, 300, 25);
+        JTextField txtBuscar = new JTextField();
+        txtBuscar.setBounds(100, 20, 250, 25);
         add(txtBuscar);
 
         JButton btnBuscar = new JButton("Buscar");
-        btnBuscar.setBounds(390, 20, 80, 25);
+        btnBuscar.setBounds(360, 20, 100, 25);
         add(btnBuscar);
 
-        resultado = new JTextArea();
+        JTextArea resultado = new JTextArea();
         resultado.setEditable(false);
         JScrollPane scroll = new JScrollPane(resultado);
-        scroll.setBounds(20, 60, 450, 380);
+        scroll.setBounds(20, 60, 440, 380);
         add(scroll);
 
-        btnBuscar.addActionListener(e -> buscarMusicas());
-    }
+        btnBuscar.addActionListener(e -> {
+            String termo = txtBuscar.getText().trim();
+            resultado.setText("");
 
-    private void buscarMusicas() {
-        String termo = txtBuscar.getText().trim();
-        resultado.setText("");
-
-        if (termo.isEmpty()) {
-            resultado.setText("Digite algo para buscar.");
-            return;
-        }
-
-        List<Musica> musicas = MusicaController.buscar(termo);
-        if (musicas.isEmpty()) {
-            resultado.setText("Nenhuma música encontrada.");
-        } else {
-            for (Musica m : musicas) {
-                resultado.append("ID: " + m.getId() + "\n");
-                resultado.append("🎵 Nome: " + m.getNome() + "\n");
-                resultado.append("👤 Artista: " + m.getArtista() + "\n");
-                resultado.append("🎧 Gênero: " + m.getGenero() + "\n");
-
+            if (termo.isEmpty()) {
+                resultado.setText("Digite algo para buscar.");
+                return;
             }
-        }
+
+            List<Musica> musicas = MusicaController.buscar(termo);
+            if (musicas.isEmpty()) {
+                resultado.setText("Nenhuma música encontrada.");
+            } else {
+                for (Musica m : musicas) {
+                    resultado.append("ID: " + m.getId() + "\n");
+                    resultado.append("🎵 Nome: " + m.getNome() + "\n");
+                    resultado.append("👤 Artista: " + m.getArtista() + "\n");
+                    resultado.append("🎧 Gênero: " + m.getGenero() + "\n");
+                    resultado.append("---------------------------\n");
+
+                    // grava no histórico de buscas do banco
+                    new HistoricoDAO().registrarBusca(usuario.getEmail(), m.getId());
+                }
+            }
+        });
     }
 }
