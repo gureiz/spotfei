@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/Cliente/Documents/NetBeansProjects/Spotifei/src/spotifei/Spotifei.java</file>
+            <file>file:/C:/Users/Cliente/Documents/NetBeansProjects/Spotifei/src/model/Usuario.java</file>
+            <file>file:/C:/Users/Cliente/Documents/NetBeansProjects/Spotifei/src/DAO/UsuarioDAO.java</file>
+            <file>file:/C:/Users/Cliente/Documents/NetBeansProjects/Spotifei/src/controller/UsuarioController.java</file>
+            <file>file:/C:/Users/Cliente/Documents/NetBeansProjects/Spotifei/src/view/TelaCadastro.java</file>
+            <file>file:/C:/Users/Cliente/Documents/NetBeansProjects/Spotifei/src/view/TelaLogin.java</file>
+            <file>file:/C:/Users/Cliente/Documents/NetBeansProjects/Spotifei/src/DAO/Conexao.java</file>
+            <file>file:/C:/Users/Cliente/Documents/NetBeansProjects/Spotifei/src/view/MenuPrincipal.java</file>
+            <file>file:/C:/Users/Cliente/Documents/NetBeansProjects/Spotifei/src/DAO/MusicaDAO.java</file>
+            <file>file:/C:/Users/Cliente/Documents/NetBeansProjects/Spotifei/src/model/Musica.java</file>
+            <file>file:/C:/Users/Cliente/Documents/NetBeansProjects/Spotifei/src/controller/MusicaController.java</file>
+            <file>file:/C:/Users/Cliente/Documents/NetBeansProjects/Spotifei/src/view/TelaBuscarMusica.java</file>
+            <file>file:/C:/Users/Cliente/Documents/NetBeansProjects/Spotifei/src/DAO/CurtidaDAO.java</file>
+            <file>file:/C:/Users/Cliente/Documents/NetBeansProjects/Spotifei/src/controller/CurtidaController.java</file>
+            <file>file:/C:/Users/Cliente/Documents/NetBeansProjects/Spotifei/src/view/TelaCurtirMusica.java</file>
+            <file>file:/C:/Users/Cliente/Documents/NetBeansProjects/Spotifei/src/view/TelaVisualizarCurtidas.java</file>
+            <file>file:/C:/Users/Cliente/Documents/NetBeansProjects/Spotifei/src/model/Playlist.java</file>
+            <file>file:/C:/Users/Cliente/Documents/NetBeansProjects/Spotifei/src/DAO/PlaylistDAO.java</file>
+            <file>file:/C:/Users/Cliente/Documents/NetBeansProjects/Spotifei/src/view/TelaGerenciarPlaylists.java</file>
+            <file>file:/C:/Users/Cliente/Documents/NetBeansProjects/Spotifei/src/view/TelaMusicasDaPlaylist.java</file>
+            <file>file:/C:/Users/Cliente/Documents/NetBeansProjects/Spotifei/src/DAO/HistoricoDAO.java</file>
+            <file>file:/C:/Users/Cliente/Documents/NetBeansProjects/Spotifei/src/view/TelaVisualizarHistorico.java</file>
+            <file>file:/C:/Users/Cliente/Documents/NetBeansProjects/Spotifei/src/model/Autenticacao.java</file>
+            <file>file:/C:/Users/Cliente/Documents/NetBeansProjects/Spotifei/src/model/Pessoa.java</file>
+            <file>file:/C:/Users/Cliente/Documents/NetBeansProjects/Spotifei/src/model/Artista.java</file>
+        </group>
+    </open-files>
+</project-private>
