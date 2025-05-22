@@ -87,3 +87,9 @@ Todas as relações usam chaves estrangeiras e constraints para garantir integri
 ## Conclusão
 
 O Spotifei é um sistema completo para gerenciamento de músicas, que aplica na prática conceitos fundamentais como persistência em banco, interface gráfica em Java e arquitetura orientada a objetos. Toda interação do usuário é registrada, e os dados são mantidos mesmo após o encerramento da aplicação.
+
+## Link do vídeo explicativo
+
+https://drive.google.com/file/d/1Au_VORO_-mLJ7o6kb43EWC_qDROIzDDw/view?usp=drive_link
+
+## Gustavo Reis Teixeira RA: 22.124.055-9
